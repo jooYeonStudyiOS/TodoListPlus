@@ -16,6 +16,7 @@
 		0AF905142A96417400524BBF /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF905132A96417400524BBF /* TodoList.swift */; };
 		0AF905162A96419800524BBF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF905152A96419800524BBF /* DetailViewController.swift */; };
 		0AF905182A9641E000524BBF /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF905172A9641E000524BBF /* WriteViewController.swift */; };
+		0AF9051C2A975D4800524BBF /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF9051B2A975D4800524BBF /* TodoListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0AF905132A96417400524BBF /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		0AF905152A96419800524BBF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0AF905172A9641E000524BBF /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		0AF9051B2A975D4800524BBF /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				0AF905002A96406800524BBF /* MainViewController.swift */,
 				0AF905152A96419800524BBF /* DetailViewController.swift */,
 				0AF905172A9641E000524BBF /* WriteViewController.swift */,
+				0AF9051B2A975D4800524BBF /* TodoListTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				0AF905182A9641E000524BBF /* WriteViewController.swift in Sources */,
 				0AF905012A96406800524BBF /* MainViewController.swift in Sources */,
+				0AF9051C2A975D4800524BBF /* TodoListTableViewCell.swift in Sources */,
 				0AF904FD2A96406800524BBF /* AppDelegate.swift in Sources */,
 				0AF905162A96419800524BBF /* DetailViewController.swift in Sources */,
 				0AF904FF2A96406800524BBF /* SceneDelegate.swift in Sources */,
