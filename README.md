@@ -4,17 +4,18 @@
 iOS14 : iOS 점유율을 근거로 하여 설정
 
 ## Model
-! : not optional
+! : not optional  
 ? : optional
 
-<TodoList>
-* listNumber: Int     / !
-* isComplited: Bool   / !
-* category: [String]  / !         -> 딕셔너리?
-* title: String       / !
-* date: Date          / !
-* time: Date          / !
-* memo: String        / ?
+#### TodoList          
+* listNumber: Int      !
+* isComplited: Bool    !
+* category: [String]   !        
+* title: String        !
+* date: Date           !
+* time: Date           !
+* memo: String         ?
+
 
 ## View 와 View의 이동
 ![메인 페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbuCsvs%2Fbtsr4kcQSC7%2Fq4x33pb6vAcQCm6XCchnek%2Fimg.jpg)
