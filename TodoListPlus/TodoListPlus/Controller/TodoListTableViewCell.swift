@@ -13,8 +13,11 @@ class TodoListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    func setupUI() {
+    func setupUI(_ index: Int) {
+        //스토리보드에서 button 없앴는데 왜 보이는거지..
         isComplitedToggleButton.setTitle("", for: .normal)
+        
+        let list = TodoList.allTodoList
+        titleLabel.text = list[index].title
     }
-    
 }
