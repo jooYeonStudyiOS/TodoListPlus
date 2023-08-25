@@ -17,7 +17,7 @@ class TodoListTableViewCell: UITableViewCell {
         //스토리보드에서 button 없앴는데 왜 보이는거지..
         isComplitedToggleButton.setTitle("", for: .normal)
         
-        let list = TodoList.allTodoList
-        titleLabel.text = list[index].title
+        let allList = TodoData.getAllList
+        titleLabel.text = allList[index].title
     }
 }

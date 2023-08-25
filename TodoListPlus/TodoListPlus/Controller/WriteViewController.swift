@@ -19,7 +19,7 @@ class WriteViewController: UIViewController {
     @IBOutlet weak var dateTimeSeleteButton: UIButton!
     @IBOutlet weak var memoTextView: UITextView!
     
-    var list: [TodoList] = TodoList.allTodoList
+    var allList: [TodoData] = TodoData.getAllList
     
     var delegate: ReloadDelegate?
     
@@ -34,16 +34,16 @@ class WriteViewController: UIViewController {
         
         guard let title = titleTextField.text else { return }
         
-        let newList = TodoList(listNumber: 1,
+        let newList = TodoData(number: 1,
                                isComplited: false,
                                title: title,
                                date: Date(),
                                time: Date(),
                                memo: memoTextView.text ?? "")
         
-        list.append(newList)
+        allList.append(newList)
         
-        TodoList.addList(list)
+        TodoData.add(allList)
         
         delegate?.reloadTabelView()
         

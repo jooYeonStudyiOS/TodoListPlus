@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var todayDateLabel: UILabel!
     @IBOutlet weak var todoListTableView: UITableView!
     
-    var list: [TodoList] = TodoList.allTodoList
+    var allList: [TodoData] = TodoData.getAllList
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,27 +23,28 @@ class MainViewController: UIViewController {
     //액션 이름 좀 바꿔야겠다
     @IBAction func didTappedGoWriteView(_ sender: Any) {
         //화면 이동 맨날 이 방법만 쓰는데 이걸로만 해도 되는걸까
-        let vcName = String(describing: WriteViewController.self)
-        let vc = storyboard?.instantiateViewController(withIdentifier: vcName) as! WriteViewController
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: false)
+        let writeViewControllerID = String(describing: WriteViewController.self)
+        let writeViewController = storyboard?.instantiateViewController(withIdentifier: writeViewControllerID) as! WriteViewController
+        writeViewController.delegate = self
+        navigationController?.pushViewController(writeViewController, animated: false)
     }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource, ReloadDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.isEmpty ? 0 : list.count
+        return allList.isEmpty ? 0 : allList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoListTableViewCell", for: indexPath) as! TodoListTableViewCell
+        let TodoListTableViewCellID = String(describing: TodoListTableViewCell.self)
+        let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCellID, for: indexPath) as! TodoListTableViewCell
         cell.setupUI(indexPath.row)
         return cell
     }
     
     func reloadTabelView() {
-        list = TodoList.allTodoList
+        allList = TodoData.getAllList
         todoListTableView.reloadData()
     }
 }
