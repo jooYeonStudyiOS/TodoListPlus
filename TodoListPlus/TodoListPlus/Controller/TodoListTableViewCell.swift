@@ -13,11 +13,29 @@ class TodoListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    let allList = TodoData.getAllList
+    
     func setupUI(_ index: Int) {
+        
+        setupIsComplitedToggleButton(index)
+        setupTitlelabel(index)
+
+    }
+    
+    func setupIsComplitedToggleButton(_ index: Int) {
+        
+        let isComplited = allList[index].isComplited
+        let checkedImage = UIImage(systemName: "checkmark.square")
+        let uncheckedImage = UIImage(systemName: "square")
+        let image = isComplited ? checkedImage : uncheckedImage
+        
         //스토리보드에서 button 없앴는데 왜 보이는거지..
         isComplitedToggleButton.setTitle("", for: .normal)
-        
-        let allList = TodoData.getAllList
+        isComplitedToggleButton.setImage(image, for: .normal)
+    }
+    
+    func setupTitlelabel(_ index: Int) {
         titleLabel.text = allList[index].title
+        titleLabel.numberOfLines = 1
     }
 }
