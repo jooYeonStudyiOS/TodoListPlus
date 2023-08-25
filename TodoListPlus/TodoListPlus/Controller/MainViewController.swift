@@ -20,8 +20,7 @@ class MainViewController: UIViewController {
         todoListTableView.dataSource = self
     }
     
-    //액션 이름 좀 바꿔야겠다
-    @IBAction func didTappedGoWriteView(_ sender: Any) {
+    @IBAction func didTappedGoWriteViewButton(_ sender: Any) {
         //화면 이동 맨날 이 방법만 쓰는데 이걸로만 해도 되는걸까
         let writeViewControllerID = String(describing: WriteViewController.self)
         let writeViewController = storyboard?.instantiateViewController(withIdentifier: writeViewControllerID) as! WriteViewController

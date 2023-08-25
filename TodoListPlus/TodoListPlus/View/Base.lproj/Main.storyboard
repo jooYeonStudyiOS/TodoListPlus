@@ -85,7 +85,7 @@
                     <navigationItem key="navigationItem" id="dBa-BT-4jK">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="yU1-OH-3qG">
                             <connections>
-                                <action selector="didTappedGoWriteView:" destination="BYZ-38-t0r" id="990-g0-etn"/>
+                                <action selector="didTappedGoWriteViewButton:" destination="BYZ-38-t0r" id="990-g0-etn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
