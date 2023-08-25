@@ -52,6 +52,22 @@ class MainViewController: UIViewController {
         writeViewController.delegate = self
         navigationController?.pushViewController(writeViewController, animated: false)
     }
+    
+    @IBAction func didTappedDeleteAllListButton(_ sender: Any) {
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let deleteAction = UIAlertAction(title: "삭제", style: .default) { _ in
+            UserDefaults.standard.removeObject(forKey: TodoData.getKeyName)
+            self.allList = TodoData.getAllList
+            self.todoListTableView.reloadData()
+            self.toggleUI()
+        }
+        
+        let alert = UIAlertController(title: "삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        alert.addAction(cancel)
+        alert.addAction(deleteAction)
+        
+        present(alert, animated: false)
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource, ReloadDelegate {
