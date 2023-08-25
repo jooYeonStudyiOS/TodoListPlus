@@ -43,6 +43,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Reload
     }
     
     func reloadTabelView() {
+        list = TodoList.allTodoList
         todoListTableView.reloadData()
     }
 }
