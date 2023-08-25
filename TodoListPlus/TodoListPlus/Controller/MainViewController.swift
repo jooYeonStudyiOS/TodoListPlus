@@ -16,6 +16,9 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
+        
         todoListTableView.delegate = self
         todoListTableView.dataSource = self
     }
@@ -26,6 +29,14 @@ class MainViewController: UIViewController {
         let writeViewController = storyboard?.instantiateViewController(withIdentifier: writeViewControllerID) as! WriteViewController
         writeViewController.delegate = self
         navigationController?.pushViewController(writeViewController, animated: false)
+    }
+    
+    func setupUI() {
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM년 dd일 E"
+        formatter.locale = Locale(identifier: "ko_KR")
+        todayDateLabel.text = formatter.string(from: today)
     }
 }
 
