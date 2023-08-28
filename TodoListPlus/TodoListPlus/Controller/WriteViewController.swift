@@ -102,11 +102,20 @@ class WriteViewController: UIViewController {
     
     
     @IBAction func didTappedDoneButton(_ sender: Any) {
-        
-        guard let title = titleTextField.text else { return }
-        guard let categoryKey = categoryLabel.text else { return }
-        
-        let newList = TodoData(number: allList.count - 1,
+                
+        guard let title = titleTextField.text, !title.isEmpty,
+              let categoryKey = categoryLabel.text, categoryKey != "카테고리",
+              let dateString = dateTimeLabel.text, dateString != "" else {
+            
+            let cancel = UIAlertAction(title: "확인", style: .destructive)
+            let alert = UIAlertController(title: "필수항목입니다", message: nil, preferredStyle: .alert)
+            alert.addAction(cancel)
+            present(alert, animated: true)
+                  
+            return
+        }
+              
+        let newList = TodoData(number: allList.count,
                                isComplited: false,
                                category: categories[categoryKey]!,
                                title: title,
