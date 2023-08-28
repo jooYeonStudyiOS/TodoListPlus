@@ -42,16 +42,21 @@ class WriteViewController: UIViewController {
         setupUI()
     }
     
-
     func setupUI() {
-        
-        titleTextField.becomeFirstResponder()
-        titleTextField.placeholder = "필수항목 입니다"
-        titleTextField.layer.borderWidth = 1
-        titleTextField.layer.borderColor =  UIColor.black.cgColor
+        setupTitleTextField()
         
         dateTimeLabel.isHidden = writeUpdateSwitch
         dateTimePickerView.isHidden = writeUpdateSwitch
+    }
+    
+    func setupTitleTextField() {
+        titleTextField.becomeFirstResponder()
+        titleTextField.placeholder = "필수항목 입니다"
+        
+        titleTextField.layer.borderWidth = 1
+        titleTextField.layer.borderColor =  UIColor.black.cgColor
+        titleTextField.layer.cornerRadius = 5
+        
     }
     
     @IBAction func didTappedDoneButton(_ sender: Any) {
