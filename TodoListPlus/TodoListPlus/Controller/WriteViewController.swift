@@ -13,21 +13,45 @@ protocol ReloadDelegate {
 
 class WriteViewController: UIViewController {
     
+    @IBOutlet weak var categoryView: UIView!
     @IBOutlet weak var categoryLabel: UILabel!
+    
     @IBOutlet weak var titleTextField: UITextField!
+    
+    @IBOutlet weak var dateTimeView: UIView!
     @IBOutlet weak var dateTimeLabel: UILabel!
-    @IBOutlet weak var dateTimeSeleteButton: UIButton!
+    
+    @IBOutlet weak var dateTimePickerView: UIDatePicker!
+    
     @IBOutlet weak var memoTextView: UITextView!
     
     var allList: [TodoData] = TodoData.getAllList
+    var list: TodoData?
+    
+    //true = Write New List
+    //false = Update Old List
+    var writeUpdateSwitch: Bool = true
     
     var delegate: ReloadDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        writeUpdateSwitch = list == nil ? true : false
+        
+        setupUI()
     }
     
-    @IBAction func didTappedDateTimeSeleteButton(_ sender: Any) {
+
+    func setupUI() {
+        
+        titleTextField.becomeFirstResponder()
+        titleTextField.placeholder = "필수항목 입니다"
+        titleTextField.layer.borderWidth = 1
+        titleTextField.layer.borderColor =  UIColor.black.cgColor
+        
+        dateTimeLabel.isHidden = writeUpdateSwitch
+        dateTimePickerView.isHidden = writeUpdateSwitch
     }
     
     @IBAction func didTappedDoneButton(_ sender: Any) {
