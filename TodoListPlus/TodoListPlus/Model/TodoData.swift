@@ -11,13 +11,17 @@ struct TodoData: Codable {
     
     let number: Int
     var isComplited: Bool
-//    var category: Cagegory
+    var category: Int
     var title: String
     var date: Date
     var memo: String
 
     static var getKeyName: String {
         return String(describing: self)
+    }
+    
+    static var getCategoryKeyname: String {
+        return "listCategory"
     }
     
     static var getAllList: [TodoData] {

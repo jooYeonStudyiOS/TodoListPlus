@@ -92,6 +92,7 @@ class WriteViewController: UIViewController {
         
         let newList = TodoData(number: 1,
                                isComplited: false,
+                               category: 1,
                                title: title,
                                date: dateTimePickerView.date,
                                memo: memoTextView.text ?? "")
