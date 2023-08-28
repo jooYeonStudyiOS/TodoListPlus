@@ -53,6 +53,10 @@ class WriteViewController: UIViewController {
         
         dateTimeLabel.isHidden = writeUpdateSwitch
         dateTimePickerView.isHidden = writeUpdateSwitch
+        
+        memoTextView.layer.borderWidth = 1
+        memoTextView.layer.borderColor =  UIColor.black.cgColor
+        memoTextView.layer.cornerRadius = 5
     }
     
     func setupTitleTextField() {
