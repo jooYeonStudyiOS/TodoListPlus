@@ -195,6 +195,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="edC-dT-HNf" firstAttribute="leading" secondItem="xxu-Pe-EFR" secondAttribute="trailing" constant="15" id="ELh-eO-Cnt"/>
                                             <constraint firstItem="xxu-Pe-EFR" firstAttribute="centerY" secondItem="kht-4N-siy" secondAttribute="centerY" id="Sa1-Ch-Tvj"/>
@@ -203,6 +204,9 @@
                                             <constraint firstAttribute="trailing" secondItem="edC-dT-HNf" secondAttribute="trailing" id="abc-4v-XMf"/>
                                             <constraint firstAttribute="height" constant="70" id="c7O-mx-w27"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ufb-hD-zcs" appends="YES" id="ud7-8a-ENM"/>
+                                        </connections>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baA-SA-3We">
                                         <rect key="frame" x="0.0" y="70" width="363" height="124"/>
@@ -234,6 +238,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="POO-Lb-QIX" firstAttribute="centerX" secondItem="uRo-oC-MXh" secondAttribute="centerX" id="j09-GO-9x7"/>
                                                 </constraints>
@@ -245,6 +250,9 @@
                                             <constraint firstItem="uRo-oC-MXh" firstAttribute="top" secondItem="EQB-dE-84n" secondAttribute="top" id="gQx-jW-CKS"/>
                                             <constraint firstItem="uRo-oC-MXh" firstAttribute="leading" secondItem="EQB-dE-84n" secondAttribute="leading" id="jTd-jx-tIz"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="frX-hq-t5E" appends="YES" id="iw3-Xp-edh"/>
+                                        </connections>
                                     </view>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="tTx-uN-4tS">
                                         <rect key="frame" x="0.0" y="264" width="363" height="216"/>
@@ -291,6 +299,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bF8-3E-pNZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ufb-hD-zcs">
+                    <connections>
+                        <action selector="didTappedCategoryView:" destination="e56-ql-Cu0" id="VSL-dy-CKq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="frX-hq-t5E">
+                    <connections>
+                        <action selector="didTappedDateTimeView:" destination="e56-ql-Cu0" id="9ph-Ku-VO6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1898.4732824427481" y="436.61971830985919"/>
         </scene>

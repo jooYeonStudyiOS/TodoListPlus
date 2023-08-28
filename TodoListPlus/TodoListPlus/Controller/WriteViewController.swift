@@ -32,6 +32,10 @@ class WriteViewController: UIViewController {
     //false = Update Old List
     var writeUpdateSwitch: Bool = true
     
+    //true = 선택 완료
+    //flase = 선택 미완료
+    var pickerViewSeletedDoneSwitch: Bool = false
+    
     var delegate: ReloadDelegate?
     
     override func viewDidLoad() {
@@ -56,8 +60,31 @@ class WriteViewController: UIViewController {
         titleTextField.layer.borderWidth = 1
         titleTextField.layer.borderColor =  UIColor.black.cgColor
         titleTextField.layer.cornerRadius = 5
-        
     }
+    
+    @IBAction func didTappedCategoryView(_ sender: Any) {
+    }
+    
+    
+    @IBAction func didTappedDateTimeView(_ sender: Any) {
+        dateTimePickerView.isHidden = pickerViewSeletedDoneSwitch
+
+        if pickerViewSeletedDoneSwitch {
+            didSelectedDateTime()
+            pickerViewSeletedDoneSwitch = false
+        } else {
+            pickerViewSeletedDoneSwitch = true
+        }
+    }
+    
+    func didSelectedDateTime() {
+        let fommater = DateFormatter()
+        fommater.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+        
+        dateTimeLabel.text = fommater.string(from: dateTimePickerView.date)
+        dateTimeLabel.isHidden = false
+    }
+    
     
     @IBAction func didTappedDoneButton(_ sender: Any) {
         
@@ -66,8 +93,7 @@ class WriteViewController: UIViewController {
         let newList = TodoData(number: 1,
                                isComplited: false,
                                title: title,
-                               date: Date(),
-                               time: Date(),
+                               date: dateTimePickerView.date,
                                memo: memoTextView.text ?? "")
         
         allList.append(newList)

@@ -14,7 +14,6 @@ struct TodoData: Codable {
 //    var category: Cagegory
     var title: String
     var date: Date
-    var time: Date
     var memo: String
 
     static var getKeyName: String {
