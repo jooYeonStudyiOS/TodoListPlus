@@ -83,16 +83,16 @@ class WriteViewController: UIViewController {
     
     @IBAction func didTappedDateTimeView(_ sender: Any) {
         dateTimePickerView.isHidden = pickerViewSeletedDoneSwitch
-
+        dateTimePickerView.addTarget(self, action: #selector(didSelectedDateTime), for: .valueChanged)
+        
         if pickerViewSeletedDoneSwitch {
-            didSelectedDateTime()
             pickerViewSeletedDoneSwitch = false
         } else {
             pickerViewSeletedDoneSwitch = true
         }
     }
     
-    func didSelectedDateTime() {
+    @objc func didSelectedDateTime() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
         
