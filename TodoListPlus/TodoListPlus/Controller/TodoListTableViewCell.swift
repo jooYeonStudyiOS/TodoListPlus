@@ -18,8 +18,8 @@ class TodoListTableViewCell: UITableViewCell {
     func setupUI(_ index: Int) {
         
         setupIsComplitedToggleButton(index)
-        setupTitlelabel(index)
-
+        setupTitleLabel(index)
+        setupTimeLabel(index)
     }
     
     func setupIsComplitedToggleButton(_ index: Int) {
@@ -34,8 +34,14 @@ class TodoListTableViewCell: UITableViewCell {
         isComplitedToggleButton.setImage(image, for: .normal)
     }
     
-    func setupTitlelabel(_ index: Int) {
+    func setupTitleLabel(_ index: Int) {
         titleLabel.text = allList[index].title
         titleLabel.numberOfLines = 1
+    }
+    
+    func setupTimeLabel(_ index: Int) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        timeLabel.text = formatter.string(from: allList[index].date)
     }
 }

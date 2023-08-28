@@ -78,10 +78,10 @@ class WriteViewController: UIViewController {
     }
     
     func didSelectedDateTime() {
-        let fommater = DateFormatter()
-        fommater.dateFormat = "yyyy년 MM월 dd일 HH:mm"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일 HH:mm"
         
-        dateTimeLabel.text = fommater.string(from: dateTimePickerView.date)
+        dateTimeLabel.text = formatter.string(from: dateTimePickerView.date)
         dateTimeLabel.isHidden = false
     }
     
