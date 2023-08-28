@@ -30,6 +30,18 @@ struct TodoData: Codable {
         return allList
     }
     
+    static var getCategories: [String: Int] {
+        var result: [String: Int] = [:]
+        
+        if let  categories = UserDefaults.standard.dictionary(forKey: TodoData.getCategoryKeyName) {
+            for i in categories {
+                result[i.key] = i.value as? Int
+            }
+        }
+        
+        return result
+    }
+    
     static func add(_ allList: [TodoData]) {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(allList), forKey: TodoData.getKeyName)
     }

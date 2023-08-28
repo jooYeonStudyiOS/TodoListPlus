@@ -28,6 +28,8 @@ class WriteViewController: UIViewController {
     var allList: [TodoData] = TodoData.getAllList
     var list: TodoData?
     
+    var categories: [String: Int] = TodoData.getCategories
+    
     //true = Write New List
     //false = Update Old List
     var writeUpdateSwitch: Bool = true
@@ -63,17 +65,14 @@ class WriteViewController: UIViewController {
     }
     
     @IBAction func didTappedCategoryView(_ sender: Any) {
-        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         actionSheet.addAction(cancel)
-
-        guard let category = UserDefaults.standard.dictionary(forKey: TodoData.getCategoryKeyName) else { return }
         
-        for i in category {
-            let action = UIAlertAction(title: i.key, style: .default) {_ in
-                self.categoryLabel.text = i.key
+        for i in categories.keys.sorted(by: { $0 < $1 }) {
+            let action = UIAlertAction(title: i, style: .default) {_ in
+                self.categoryLabel.text = i
             }
             actionSheet.addAction(action)
         }
@@ -105,14 +104,15 @@ class WriteViewController: UIViewController {
     @IBAction func didTappedDoneButton(_ sender: Any) {
         
         guard let title = titleTextField.text else { return }
+        guard let categoryKey = categoryLabel.text else { return }
         
-        let newList = TodoData(number: 1,
+        let newList = TodoData(number: allList.count - 1,
                                isComplited: false,
-                               category: 1,
+                               category: categories[categoryKey]!,
                                title: title,
                                date: dateTimePickerView.date,
                                memo: memoTextView.text ?? "")
-        
+            
         allList.append(newList)
         
         TodoData.add(allList)
