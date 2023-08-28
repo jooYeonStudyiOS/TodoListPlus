@@ -20,7 +20,7 @@ struct TodoData: Codable {
         return String(describing: self)
     }
     
-    static var getCategoryKeyname: String {
+    static var getCategoryKeyName: String {
         return "listCategory"
     }
     

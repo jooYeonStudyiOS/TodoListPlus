@@ -63,6 +63,22 @@ class WriteViewController: UIViewController {
     }
     
     @IBAction func didTappedCategoryView(_ sender: Any) {
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        actionSheet.addAction(cancel)
+
+        guard let category = UserDefaults.standard.dictionary(forKey: TodoData.getCategoryKeyName) else { return }
+        
+        for i in category {
+            let action = UIAlertAction(title: i.key, style: .default) {_ in
+                self.categoryLabel.text = i.key
+            }
+            actionSheet.addAction(action)
+        }
+        
+        present(actionSheet, animated: true)
     }
     
     
