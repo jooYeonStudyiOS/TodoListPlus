@@ -17,28 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnU-je-boS">
-                                <rect key="frame" x="107" y="115" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="&lt;"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-h5-7YC">
-                                <rect key="frame" x="253" y="115" width="35" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일정이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cXA-Z0-ATU">
-                                <rect key="frame" x="0.0" y="404" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일정이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXA-Z0-ATU">
+                                <rect key="frame" x="143" y="450.33333333333331" width="107.33333333333331" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="225-4t-mOP">
-                                <rect key="frame" x="0.0" y="158" width="393" height="630"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnU-je-boS">
+                                <rect key="frame" x="100.33333333333333" y="116" width="34.333333333333329" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt;"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-h5-7YC">
+                                <rect key="frame" x="258.66666666666669" y="116" width="35" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="225-4t-mOP">
+                                <rect key="frame" x="0.0" y="164" width="393" height="624"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoListTableViewCell" id="kBK-y1-PPM" customClass="TodoListTableViewCell" customModule="TodoListPlus" customModuleProvider="target">
@@ -48,27 +44,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgj-bQ-ykr">
-                                                    <rect key="frame" x="78" y="11" width="250" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19C-mt-caM">
+                                                    <rect key="frame" x="10" y="4.6666666666666679" width="49" height="34.333333333333329"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="square" catalog="system"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgj-bQ-ykr">
+                                                    <rect key="frame" x="69" y="12" width="28.666666666666671" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19C-mt-caM">
-                                                    <rect key="frame" x="19" y="4" width="49" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="square" catalog="system"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pad-48-VGO">
-                                                    <rect key="frame" x="331" y="10" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pad-48-VGO">
+                                                    <rect key="frame" x="339" y="11.333333333333336" width="34" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qgj-bQ-ykr" firstAttribute="centerY" secondItem="rDI-UY-s4Y" secondAttribute="centerY" id="0nN-IS-hVK"/>
+                                                <constraint firstItem="19C-mt-caM" firstAttribute="centerY" secondItem="rDI-UY-s4Y" secondAttribute="centerY" id="axf-BS-RZS"/>
+                                                <constraint firstItem="qgj-bQ-ykr" firstAttribute="leading" secondItem="19C-mt-caM" secondAttribute="trailing" constant="10" id="vSX-zK-5xz"/>
+                                                <constraint firstItem="pad-48-VGO" firstAttribute="centerY" secondItem="rDI-UY-s4Y" secondAttribute="centerY" id="vwS-m4-Ihf"/>
+                                                <constraint firstAttribute="trailing" secondItem="pad-48-VGO" secondAttribute="trailing" constant="20" id="w36-fF-DDy"/>
+                                                <constraint firstItem="19C-mt-caM" firstAttribute="leading" secondItem="rDI-UY-s4Y" secondAttribute="leading" constant="10" id="zIk-Yq-RLc"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="isComplitedToggleButton" destination="19C-mt-caM" id="mfr-Jx-5CD"/>
@@ -78,9 +79,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jq-0B-I9G">
-                                <rect key="frame" x="164" y="122" width="64" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jq-0B-I9G">
+                                <rect key="frame" x="164.66666666666666" y="123" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -88,6 +88,20 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="225-4t-mOP" firstAttribute="top" secondItem="2Jq-0B-I9G" secondAttribute="bottom" constant="20" id="0XO-8y-Rxy"/>
+                            <constraint firstItem="2Jq-0B-I9G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="290-vq-lkN"/>
+                            <constraint firstItem="2Jq-0B-I9G" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Y2-5K-pAf"/>
+                            <constraint firstItem="2Jq-0B-I9G" firstAttribute="leading" secondItem="ZnU-je-boS" secondAttribute="trailing" constant="30" id="4pp-Bb-gbA"/>
+                            <constraint firstItem="2Jq-0B-I9G" firstAttribute="trailing" secondItem="JLs-h5-7YC" secondAttribute="leading" constant="-30" id="BqH-Lw-juM"/>
+                            <constraint firstItem="cXA-Z0-ATU" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="F6n-5J-QDb"/>
+                            <constraint firstItem="cXA-Z0-ATU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PyA-cS-fer"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="225-4t-mOP" secondAttribute="bottom" constant="30" id="dwS-K0-Ac2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="225-4t-mOP" secondAttribute="trailing" id="fzI-1j-0zp"/>
+                            <constraint firstItem="JLs-h5-7YC" firstAttribute="centerY" secondItem="2Jq-0B-I9G" secondAttribute="centerY" id="iH0-in-iPS"/>
+                            <constraint firstItem="225-4t-mOP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ibB-E8-5Q5"/>
+                            <constraint firstItem="ZnU-je-boS" firstAttribute="centerY" secondItem="2Jq-0B-I9G" secondAttribute="centerY" id="iiX-cV-DM3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dBa-BT-4jK">
                         <barButtonItem key="leftBarButtonItem" image="trash.circle" catalog="system" id="qPA-62-3hf">

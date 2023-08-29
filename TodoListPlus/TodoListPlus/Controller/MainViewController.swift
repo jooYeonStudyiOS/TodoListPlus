@@ -36,7 +36,13 @@ class MainViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy년 MM년 dd일 E"
         formatter.locale = Locale(identifier: "ko_KR")
+        
         todayDateLabel.text = formatter.string(from: today)
+        todayDateLabel.adjustsFontSizeToFitWidth = true
+        
+        listIsEmptyLabel.textAlignment = .center
+        listIsEmptyLabel.adjustsFontSizeToFitWidth = true
+        
     }
     
     func toggleUI() {
