@@ -19,7 +19,7 @@ class TodoListTableViewCell: UITableViewCell {
     func setupUI(_ index: IndexPath) {
         
         allList = TodoData.getAllList
-        list = allList.filter({ $0.category == index.section })[index.row]
+        list = allList.filter({ $0.category == index.section }).sorted(by: { $0.date < $1.date })[index.row]
         
         setupIsComplitedToggleButton(index)
         setupTitleLabel(index)
