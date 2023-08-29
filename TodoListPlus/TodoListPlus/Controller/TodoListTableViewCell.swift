@@ -14,19 +14,21 @@ class TodoListTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     
     var allList: [TodoData] = []
+    var list: TodoData!
     
-    func setupUI(_ index: Int) {
+    func setupUI(_ index: IndexPath) {
         
         allList = TodoData.getAllList
+        list = allList.filter({ $0.category == index.section })[index.row]
         
         setupIsComplitedToggleButton(index)
         setupTitleLabel(index)
         setupTimeLabel(index)
     }
     
-    func setupIsComplitedToggleButton(_ index: Int) {
+    func setupIsComplitedToggleButton(_ index: IndexPath) {
         
-        let isComplited = allList[index].isComplited
+        let isComplited = list.isComplited
         let checkedImage = UIImage(systemName: "checkmark.square")
         let uncheckedImage = UIImage(systemName: "square")
         let image = isComplited ? checkedImage : uncheckedImage
@@ -36,14 +38,14 @@ class TodoListTableViewCell: UITableViewCell {
         isComplitedToggleButton.setImage(image, for: .normal)
     }
     
-    func setupTitleLabel(_ index: Int) {
-        titleLabel.text = allList[index].title
+    func setupTitleLabel(_ index: IndexPath) {
+        titleLabel.text = list.title
         titleLabel.numberOfLines = 1
     }
     
-    func setupTimeLabel(_ index: Int) {
+    func setupTimeLabel(_ index: IndexPath) {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        timeLabel.text = formatter.string(from: allList[index].date)
+        timeLabel.text = formatter.string(from: list.date)
     }
 }

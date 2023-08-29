@@ -14,13 +14,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var todoListTableView: UITableView!
     
     var allList: [TodoData] = []
-
+    var categories: [Int : String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         
         allList = TodoData.getAllList
+        categories = TodoData.getCategories
         
         todoListTableView.delegate = self
         todoListTableView.dataSource = self
@@ -79,14 +81,22 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource, ReloadDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories.sorted(by: { $0.key < $1.key })[section].value
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allList.isEmpty ? 0 : allList.count
+        return allList.filter({$0.category == section}).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let TodoListTableViewCellID = String(describing: TodoListTableViewCell.self)
         let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCellID, for: indexPath) as! TodoListTableViewCell
-        cell.setupUI(indexPath.row)
+        cell.setupUI(indexPath)
         return cell
     }
     
