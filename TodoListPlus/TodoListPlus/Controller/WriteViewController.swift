@@ -28,7 +28,8 @@ class WriteViewController: UIViewController {
     var allList: [TodoData] = []
     var list: TodoData?
     
-    var categories: [String: Int] = TodoData.getCategories
+    var categories: [Int: String] = TodoData.getCategories
+    var categoryKey: Int?
     
     //true = Write New List
     //false = Update Old List
@@ -74,10 +75,12 @@ class WriteViewController: UIViewController {
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         actionSheet.addAction(cancel)
         
-        for i in categories.keys.sorted(by: { $0 < $1 }) {
-            let action = UIAlertAction(title: i, style: .default) {_ in
-                self.categoryLabel.text = i
+        for i in categories.sorted(by: { $0.key < $1.key }) {
+            let action = UIAlertAction(title: i.value, style: .default) {_ in
+                self.categoryLabel.text = i.value
+                self.categoryKey = i.key
             }
+            
             actionSheet.addAction(action)
         }
         
@@ -108,7 +111,7 @@ class WriteViewController: UIViewController {
     @IBAction func didTappedDoneButton(_ sender: Any) {
                 
         guard let title = titleTextField.text, !title.isEmpty,
-              let categoryKey = categoryLabel.text, categoryKey != "카테고리",
+              let category = categoryLabel.text, category != "카테고리",
               let dateString = dateTimeLabel.text, dateString != "" else {
             
             let cancel = UIAlertAction(title: "확인", style: .destructive)
@@ -121,7 +124,7 @@ class WriteViewController: UIViewController {
               
         let newList = TodoData(number: allList.count,
                                isComplited: false,
-                               category: categories[categoryKey]!,
+                               category: categoryKey ?? 0,
                                title: title,
                                date: dateTimePickerView.date,
                                memo: memoTextView.text ?? "")
