@@ -13,12 +13,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var listIsEmptyLabel: UILabel!
     @IBOutlet weak var todoListTableView: UITableView!
     
-    var allList: [TodoData] = TodoData.getAllList
+    var allList: [TodoData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        
+        allList = TodoData.getAllList
         
         todoListTableView.delegate = self
         todoListTableView.dataSource = self
@@ -26,7 +28,6 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         toggleUI()
     }
     

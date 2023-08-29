@@ -25,7 +25,7 @@ class WriteViewController: UIViewController {
     
     @IBOutlet weak var memoTextView: UITextView!
     
-    var allList: [TodoData] = TodoData.getAllList
+    var allList: [TodoData] = []
     var list: TodoData?
     
     var categories: [String: Int] = TodoData.getCategories
@@ -42,7 +42,7 @@ class WriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        allList = TodoData.getAllList
         writeUpdateSwitch = list == nil ? true : false
         
         setupUI()

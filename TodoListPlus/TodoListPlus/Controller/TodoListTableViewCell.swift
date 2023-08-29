@@ -13,9 +13,11 @@ class TodoListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    let allList = TodoData.getAllList
+    var allList: [TodoData] = []
     
     func setupUI(_ index: Int) {
+        
+        allList = TodoData.getAllList
         
         setupIsComplitedToggleButton(index)
         setupTitleLabel(index)
