@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        setupTableFooterView()
         
         allList = TodoData.getAllList
         categories = TodoData.getCategories
@@ -55,6 +56,17 @@ class MainViewController: UIViewController {
         let isHiddenFlag = allList.isEmpty ? true : false
         listIsEmptyLabel.isHidden = !isHiddenFlag
         todoListTableView.isHidden = isHiddenFlag
+    }
+    
+    func setupTableFooterView() {
+        let imageView = UIImageView()
+        let imageURL = URL(string: "https://spartacodingclub.kr/css/images/scc-og.jpg")!
+        if let imageDate = try? Data(contentsOf: imageURL) {
+            let image = UIImage(data: imageDate)
+            imageView.image = image
+            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+            todoListTableView.tableFooterView = imageView
+        }
     }
     
     @IBAction func didTappedGoWriteViewButton(_ sender: Any) {
