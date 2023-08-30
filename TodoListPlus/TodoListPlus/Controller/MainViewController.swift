@@ -9,12 +9,16 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var todayDateLabel: UILabel!
+    @IBOutlet weak var selectedDateLabel: UILabel!
     @IBOutlet weak var listIsEmptyLabel: UILabel!
     @IBOutlet weak var todoListTableView: UITableView!
     
     var allList: [TodoData] = []
+    var filteredSectionList: [TodoData] = []
     var categories: [Int : String] = [:]
+    
+    let today = Date()
+    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +39,12 @@ class MainViewController: UIViewController {
     
     //지금 상황에서는 한 번만 불리니까 viewDidLoad에서 불러도 괜찮다
     func setupUI() {
-        let today = Date()
-        let formatter = DateFormatter()
+
         formatter.dateFormat = "yyyy년 MM년 dd일 E"
         formatter.locale = Locale(identifier: "ko_KR")
         
-        todayDateLabel.text = formatter.string(from: today)
-        todayDateLabel.adjustsFontSizeToFitWidth = true
+        selectedDateLabel.text = formatter.string(from: today)
+        selectedDateLabel.adjustsFontSizeToFitWidth = true
         
         listIsEmptyLabel.textAlignment = .center
         listIsEmptyLabel.adjustsFontSizeToFitWidth = true
@@ -90,7 +93,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Reload
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allList.filter({$0.category == section}).count
+        guard let dateString = selectedDateLabel.text, let date = formatter.date(from: dateString) else { return 0 }
+        filteredSectionList = allList.filter{ Calendar.current.isDate(date, inSameDayAs: $0.date) && $0.category == section }
+        return filteredSectionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
