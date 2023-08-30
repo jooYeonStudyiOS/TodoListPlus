@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
             if let data = data, let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     imageView.image = image
-                    imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                    imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: 150)
                     self.todoListTableView.tableFooterView = imageView
                 }
             }
