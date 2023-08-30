@@ -59,25 +59,13 @@ class MainViewController: UIViewController {
     }
     
     func setupTableFooterView() {
-        let imageView = UIImageView()
-        let imageURL = URL(string: "https://spartacodingclub.kr/css/images/scc-og.jpg")!
+        let button = UIButton()
+        button.setTitle("랜덤 페이지 이동", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
+        button.addTarget(self, action: #selector(didTappedRandomPageButton), for: .touchUpInside)
 
-        let task = URLSession.shared.dataTask(with: imageURL) { data, response, error in
-            if let error = error {
-                print("Error: \(error)")
-                return
-            }
-            
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    imageView.image = image
-                    imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: 150)
-                    self.todoListTableView.tableFooterView = imageView
-                }
-            }
-        }
-
-        task.resume()
+        todoListTableView.tableFooterView = button
     }
     
     @IBAction func didTappedGoWriteViewButton(_ sender: Any) {
@@ -102,6 +90,10 @@ class MainViewController: UIViewController {
         alert.addAction(deleteAction)
         
         present(alert, animated: false)
+    }
+    
+    @objc func didTappedRandomPageButton() {
+
     }
 }
 
