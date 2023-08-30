@@ -61,12 +61,23 @@ class MainViewController: UIViewController {
     func setupTableFooterView() {
         let imageView = UIImageView()
         let imageURL = URL(string: "https://spartacodingclub.kr/css/images/scc-og.jpg")!
-        if let imageDate = try? Data(contentsOf: imageURL) {
-            let image = UIImage(data: imageDate)
-            imageView.image = image
-            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-            todoListTableView.tableFooterView = imageView
+
+        let task = URLSession.shared.dataTask(with: imageURL) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    imageView.image = image
+                    imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                    self.todoListTableView.tableFooterView = imageView
+                }
+            }
         }
+
+        task.resume()
     }
     
     @IBAction func didTappedGoWriteViewButton(_ sender: Any) {
