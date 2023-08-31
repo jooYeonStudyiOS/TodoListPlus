@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
             button.setTitle("랜덤 페이지 이동", for: .normal)
             button.setTitleColor(.systemBlue, for: .normal)
             button.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
-            button.addTarget(self, action: #selector(didTappedRandomPageButton), for: .touchUpInside)
+            button.addTarget(self, action: #selector(didTappedRandomPageButton(_:)), for: .touchUpInside)
             return button
         }()
         
@@ -95,8 +95,18 @@ class MainViewController: UIViewController {
         present(alert, animated: false)
     }
     
-    @objc func didTappedRandomPageButton() {
-        performSegue(withIdentifier: "PetViewController", sender: nil)
+    //segue 이동 연습, 데이터 전달 연습
+    @objc func didTappedRandomPageButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "PetViewController", sender: sender.titleLabel?.text)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PetViewController" {
+            if let petViewController = segue.destination as? PetViewController,
+               let buttonTitle = sender as? String {
+                petViewController.receivedTitle = buttonTitle
+            }
+        }
     }
 }
 

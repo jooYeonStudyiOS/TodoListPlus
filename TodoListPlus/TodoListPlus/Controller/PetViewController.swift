@@ -10,9 +10,15 @@ import UIKit
 class PetViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    var receivedTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let title = receivedTitle {
+            titleLabel.text = title
+        }
         
         let isCat = Bool.random()
         let apiURLString = isCat ? "https://api.thecatapi.com/v1/images/search" : "https://api.thedogapi.com/v1/images/search"
