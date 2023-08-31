@@ -135,10 +135,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kfl-gC-JDJ">
-                                <rect key="frame" x="76.666666666666686" y="340.66666666666669" width="240" height="240.00000000000006"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Kfl-gC-JDJ" secondAttribute="height" multiplier="1:1" id="PFo-Hw-hy9"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="252" width="393" height="417"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAy-lV-t83">
                                 <rect key="frame" x="175.66666666666666" y="131" width="42" height="21"/>
@@ -153,8 +150,10 @@
                             <constraint firstItem="xAy-lV-t83" firstAttribute="top" secondItem="2gI-76-yq4" secondAttribute="top" constant="28" id="3bQ-n3-ue5"/>
                             <constraint firstItem="Kfl-gC-JDJ" firstAttribute="centerX" secondItem="2gI-76-yq4" secondAttribute="centerX" id="6mP-eA-2A8"/>
                             <constraint firstItem="Kfl-gC-JDJ" firstAttribute="centerY" secondItem="2gI-76-yq4" secondAttribute="centerY" id="6qn-6x-hfp"/>
+                            <constraint firstItem="Kfl-gC-JDJ" firstAttribute="top" secondItem="xAy-lV-t83" secondAttribute="bottom" constant="100" id="7AL-Aa-W4U"/>
+                            <constraint firstItem="Kfl-gC-JDJ" firstAttribute="leading" secondItem="2gI-76-yq4" secondAttribute="leading" id="S1X-A9-ALy"/>
+                            <constraint firstItem="2gI-76-yq4" firstAttribute="trailing" secondItem="Kfl-gC-JDJ" secondAttribute="trailing" id="a6x-eA-9y2"/>
                             <constraint firstItem="xAy-lV-t83" firstAttribute="centerX" secondItem="2gI-76-yq4" secondAttribute="centerX" id="kGv-oJ-nrH"/>
-                            <constraint firstItem="Kfl-gC-JDJ" firstAttribute="width" secondItem="aqE-Ky-idq" secondAttribute="width" multiplier="0.610687" id="l9K-Hv-dfm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AGs-le-v07"/>

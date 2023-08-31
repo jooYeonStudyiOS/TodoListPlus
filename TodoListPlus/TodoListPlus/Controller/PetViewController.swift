@@ -36,18 +36,24 @@ class PetViewController: UIViewController {
             // JSON 파싱
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]
-                if let imageURLString = json?.first?["url"] as? String, let imageURL = URL(string: imageURLString) {
-                    if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {
-                        DispatchQueue.main.async {
-                            self.imageView.image = image
+                
+                if let imageURLString = json?.first?["url"] as? String,
+                   let imageURL = URL(string: imageURLString),
+                   let imageWidth = json?.first?["width"] as? CGFloat,
+                   let imageHeight = json?.first?["height"] as? CGFloat {
+                    
+                        if let imageData = try? Data(contentsOf: imageURL),
+                           let image = UIImage(data: imageData) {
+                            DispatchQueue.main.async {
+                                self.imageView.image = image
+                                self.imageView.frame.size = CGSize(width: imageWidth, height: imageHeight)
+                            }
                         }
-                    }
                 }
+                
             } catch {
                 print("JSON parsing error: \(error)")
             }
         }.resume()
     }
 }
-
-
