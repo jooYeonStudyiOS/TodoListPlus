@@ -133,6 +133,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Reload
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewControllerID = String(describing: DetailViewController.self)
+        let detailViewController = storyboard?.instantiateViewController(withIdentifier: detailViewControllerID) as! DetailViewController
+        detailViewController.indexPath = indexPath
+        navigationController?.pushViewController(detailViewController, animated: false)
+    }
+    
     func reloadTabelView() {
         allList = TodoData.getAllList
         todoListTableView.reloadData()

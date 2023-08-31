@@ -42,6 +42,10 @@ struct TodoData: Codable {
         return result
     }
     
+    static func getCategory(key: Int) -> String {
+        return getCategories[key] ?? "카테고리"
+    }
+    
     static func add(_ allList: [TodoData]) {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(allList), forKey: TodoData.getKeyName)
     }
