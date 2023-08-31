@@ -25,15 +25,7 @@ class WriteViewController: UIViewController, UISetupProtocol {
     
     @IBOutlet weak var memoTextView: UITextView!
     
-    var allList: [TodoData] = []
-    var list: TodoData?
-    
-    var categories: [Int: String] = TodoData.getCategories
     var categoryKey: Int?
-    
-    //true = Write New List
-    //false = Update Old List
-    var writeUpdateSwitch: Bool = true
     
     //true = 선택 완료
     //flase = 선택 미완료
@@ -43,48 +35,39 @@ class WriteViewController: UIViewController, UISetupProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allList = TodoData.getAllList
-        writeUpdateSwitch = list == nil ? true : false
-        
         setupUI()
     }
     
     func setupUI() {
-        
-        dateTimeLabel.isHidden = writeUpdateSwitch
+        setupTitleTextField()
+        setupdateTimePickerView()
+        setupMemoTextView()
+    }
+    
+    func setupTitleTextField() {
         setup(to: titleTextField)
+    }
+    
+    func setupdateTimePickerView() {
         setup(to: dateTimePickerView)
+        
+        dateTimeLabel.isHidden = pickerViewSeletedDoneSwitch
+    }
+    
+    func setupMemoTextView() {
         setup(to: memoTextView)
     }
     
     @IBAction func didTappedCategoryView(_ sender: Any) {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        actionSheet.addAction(cancel)
-        
-        for i in categories.sorted(by: { $0.key < $1.key }) {
-            let action = UIAlertAction(title: i.value, style: .default) {_ in
-                self.categoryLabel.text = i.value
-                self.categoryKey = i.key
-            }
-            
-            actionSheet.addAction(action)
-        }
-        
-        present(actionSheet, animated: true)
+        categoryKey = showCategoryActionSheet(categoryLabel: categoryLabel)
     }
-    
     
     @IBAction func didTappedDateTimeView(_ sender: Any) {
         dateTimePickerView.isHidden = pickerViewSeletedDoneSwitch
         dateTimePickerView.addTarget(self, action: #selector(didSelectedDateTime), for: .valueChanged)
+        dateTimePickerView.addTarget(self, action: #selector(didSelectedDateTime), for: .editingDidEnd)
         
-        if pickerViewSeletedDoneSwitch {
-            pickerViewSeletedDoneSwitch = false
-        } else {
-            pickerViewSeletedDoneSwitch = true
-        }
+        pickerViewSeletedDoneSwitch = pickerViewSeletedDoneSwitch ? false : true
     }
     
     @objc func didSelectedDateTime() {
@@ -95,28 +78,24 @@ class WriteViewController: UIViewController, UISetupProtocol {
         dateTimeLabel.isHidden = false
     }
     
-    
     @IBAction func didTappedDoneButton(_ sender: Any) {
-                
+        
         guard let title = titleTextField.text, !title.isEmpty,
               let category = categoryLabel.text, category != "카테고리",
               let dateString = dateTimeLabel.text, dateString != "" else {
-            
-            let cancel = UIAlertAction(title: "확인", style: .destructive)
-            let alert = UIAlertController(title: "필수항목입니다", message: nil, preferredStyle: .alert)
-            alert.addAction(cancel)
-            present(alert, animated: true)
-                  
+            showRequiredAlert()
             return
         }
-              
+        
+        var allList = TodoData.getAllList
+        
         let newList = TodoData(number: allList.count,
                                isComplited: false,
                                category: categoryKey ?? 0,
                                title: title,
                                date: dateTimePickerView.date,
                                memo: memoTextView.text ?? "")
-            
+        
         allList.append(newList)
         
         TodoData.add(allList)

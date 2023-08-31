@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AE1ED612AA0151900383859 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1ED602AA0151900383859 /* PetViewController.swift */; };
 		0AE1ED672AA0B59300383859 /* UISetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1ED662AA0B59300383859 /* UISetupProtocol.swift */; };
+		0AE1ED692AA0B78300383859 /* UIActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE1ED682AA0B78300383859 /* UIActionHandler.swift */; };
 		0AF904FD2A96406800524BBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF904FC2A96406800524BBF /* AppDelegate.swift */; };
 		0AF904FF2A96406800524BBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF904FE2A96406800524BBF /* SceneDelegate.swift */; };
 		0AF905012A96406800524BBF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF905002A96406800524BBF /* MainViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		0AE1ED602AA0151900383859 /* PetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		0AE1ED662AA0B59300383859 /* UISetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISetupProtocol.swift; sourceTree = "<group>"; };
+		0AE1ED682AA0B78300383859 /* UIActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActionHandler.swift; sourceTree = "<group>"; };
 		0AF904F92A96406800524BBF /* TodoListPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF904FC2A96406800524BBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AF904FE2A96406800524BBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				0AF9051B2A975D4800524BBF /* TodoListTableViewCell.swift */,
 				0AE1ED602AA0151900383859 /* PetViewController.swift */,
 				0AE1ED662AA0B59300383859 /* UISetupProtocol.swift */,
+				0AE1ED682AA0B78300383859 /* UIActionHandler.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				0AF905182A9641E000524BBF /* WriteViewController.swift in Sources */,
 				0AF905012A96406800524BBF /* MainViewController.swift in Sources */,
 				0AE1ED612AA0151900383859 /* PetViewController.swift in Sources */,
+				0AE1ED692AA0B78300383859 /* UIActionHandler.swift in Sources */,
 				0AF9051C2A975D4800524BBF /* TodoListTableViewCell.swift in Sources */,
 				0AF904FD2A96406800524BBF /* AppDelegate.swift in Sources */,
 				0AF905162A96419800524BBF /* DetailViewController.swift in Sources */,
