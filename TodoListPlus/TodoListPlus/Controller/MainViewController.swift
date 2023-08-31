@@ -59,13 +59,16 @@ class MainViewController: UIViewController {
     }
     
     func setupTableFooterView() {
-        let button = UIButton()
-        button.setTitle("랜덤 페이지 이동", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
-        button.addTarget(self, action: #selector(didTappedRandomPageButton), for: .touchUpInside)
-
-        todoListTableView.tableFooterView = button
+        let randomPageButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("랜덤 페이지 이동", for: .normal)
+            button.setTitleColor(.systemBlue, for: .normal)
+            button.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
+            button.addTarget(self, action: #selector(didTappedRandomPageButton), for: .touchUpInside)
+            return button
+        }()
+        
+        todoListTableView.tableFooterView = randomPageButton
     }
     
     @IBAction func didTappedGoWriteViewButton(_ sender: Any) {
@@ -93,7 +96,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func didTappedRandomPageButton() {
-
+        performSegue(withIdentifier: "PetViewController", sender: nil)
     }
 }
 
