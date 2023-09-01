@@ -42,6 +42,7 @@ class WriteViewController: UIViewController, UISetupProtocol {
         setupTitleTextField()
         setupdateTimePickerView()
         setupMemoTextView()
+        addRightBarButton(title: .done)
     }
     
     func setupTitleTextField() {
@@ -78,7 +79,7 @@ class WriteViewController: UIViewController, UISetupProtocol {
         dateTimeLabel.isHidden = false
     }
     
-    @IBAction func didTappedDoneButton(_ sender: Any) {
+    override func didTappedRightBarButton() {
         
         guard let title = titleTextField.text, !title.isEmpty,
               let category = categoryLabel.text, category != "카테고리",

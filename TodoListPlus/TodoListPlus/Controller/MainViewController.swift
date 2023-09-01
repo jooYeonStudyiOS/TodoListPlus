@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
         
         setupUI()
         setupTableFooterView()
+        addRightBarButton(title: .plus)
         
         allList = TodoData.getAllList
         categories = TodoData.getCategories
@@ -71,14 +72,6 @@ class MainViewController: UIViewController {
         todoListTableView.tableFooterView = randomPageButton
     }
     
-    @IBAction func didTappedGoWriteViewButton(_ sender: Any) {
-        //화면 이동 맨날 이 방법만 쓰는데 이걸로만 해도 되는걸까
-        let writeViewControllerID = String(describing: WriteViewController.self)
-        let writeViewController = storyboard?.instantiateViewController(withIdentifier: writeViewControllerID) as! WriteViewController
-        writeViewController.delegate = self
-        navigationController?.pushViewController(writeViewController, animated: false)
-    }
-    
     @IBAction func didTappedDeleteAllListButton(_ sender: Any) {
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let deleteAction = UIAlertAction(title: "삭제", style: .default) { _ in
@@ -107,6 +100,13 @@ class MainViewController: UIViewController {
                 petViewController.receivedTitle = buttonTitle
             }
         }
+    }
+    
+    override func didTappedRightBarButton() {
+        let writeViewControllerID = String(describing: WriteViewController.self)
+        let writeViewController = storyboard?.instantiateViewController(withIdentifier: writeViewControllerID) as! WriteViewController
+        writeViewController.delegate = self
+        navigationController?.pushViewController(writeViewController, animated: false)
     }
 }
 

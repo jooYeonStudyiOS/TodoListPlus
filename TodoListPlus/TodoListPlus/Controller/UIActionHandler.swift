@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum RightBarButtonTitle: String {
+    case plus = "추가"
+    case done = "완료"
+    case update = "수정"
+}
+
 extension UIViewController {
     func showCategoryActionSheet(categoryLabel: UILabel) -> Int {
         
@@ -38,6 +44,13 @@ extension UIViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
     }
+    
+    func addRightBarButton(title: RightBarButtonTitle) {
+        let button = UIBarButtonItem(title: title.rawValue, style: .plain, target: self, action: #selector(didTappedRightBarButton))
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc func didTappedRightBarButton() {  }
 }
 
 

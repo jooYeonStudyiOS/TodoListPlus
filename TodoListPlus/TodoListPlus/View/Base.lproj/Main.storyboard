@@ -109,11 +109,6 @@
                                 <action selector="didTappedDeleteAllListButton:" destination="BYZ-38-t0r" id="TEA-yT-amg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="yU1-OH-3qG">
-                            <connections>
-                                <action selector="didTappedGoWriteViewButton:" destination="BYZ-38-t0r" id="990-g0-etn"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listIsEmptyLabel" destination="cXA-Z0-ATU" id="oHc-Nh-mjA"/>
@@ -472,7 +467,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="trash.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">

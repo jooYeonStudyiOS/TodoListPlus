@@ -49,6 +49,7 @@ class DetailViewController: UIViewController, UISetupProtocol {
         setupTitleTextField()
         setupdateTimePickerView()
         setupMemoTextView()
+        addRightBarButton(title: .update)
     }
     
     func setupCategoryLabel() {
@@ -94,14 +95,7 @@ class DetailViewController: UIViewController, UISetupProtocol {
         dateTimeLabel.isHidden = false
     }
     
-    @IBAction func didTappedDoneButton(_ sender: Any) {
-        
-        guard let title = titleTextField.text, !title.isEmpty,
-              let category = categoryLabel.text, category != "카테고리",
-              let dateString = dateTimeLabel.text, dateString != "" else {
-            showRequiredAlert()
-            return
-        }
-
+    override func didTappedRightBarButton() {
+        print("ASdf")
     }
 }
