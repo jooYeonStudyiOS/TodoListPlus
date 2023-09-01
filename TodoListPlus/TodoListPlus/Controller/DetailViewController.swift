@@ -96,6 +96,27 @@ class DetailViewController: UIViewController, UISetupProtocol {
     }
     
     override func didTappedRightBarButton() {
-        print("ASdf")
+        guard let title = titleTextField.text, !title.isEmpty,
+              let category = categoryLabel.text, category != "카테고리",
+              let dateString = dateTimeLabel.text, dateString != "" else {
+            showRequiredAlert()
+            return
+        }
+        
+        list?.category = categoryKey ?? 0
+        list?.title = title
+        list?.date = dateTimePickerView.date
+        list?.memo = memoTextView.text
+        
+        guard let newList = list else { return }
+        
+        allList?[newList.number] = newList
+        
+        TodoData.update(allList!)
+        
+        pickerViewSeletedDoneSwitch = true
+        dateTimePickerView.isHidden = pickerViewSeletedDoneSwitch
+        
+        view.endEditing(true)
     }
 }

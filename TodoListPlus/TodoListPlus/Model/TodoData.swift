@@ -49,4 +49,8 @@ struct TodoData: Codable {
     static func add(_ allList: [TodoData]) {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(allList), forKey: TodoData.getKeyName)
     }
+    
+    static func update(_ allList: [TodoData]) {
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(allList), forKey: TodoData.getKeyName)
+    }
 }
