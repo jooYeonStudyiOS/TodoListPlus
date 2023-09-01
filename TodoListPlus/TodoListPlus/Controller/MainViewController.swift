@@ -26,15 +26,17 @@ class MainViewController: UIViewController {
         setupTableFooterView()
         addRightBarButton(title: .plus)
         
-        allList = TodoData.getAllList
-        categories = TodoData.getCategories
-        
         todoListTableView.delegate = self
         todoListTableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        allList = TodoData.getAllList
+        categories = TodoData.getCategories
+        
+        todoListTableView.reloadData()
+        
         toggleUI()
     }
     
@@ -49,7 +51,6 @@ class MainViewController: UIViewController {
         
         listIsEmptyLabel.textAlignment = .center
         listIsEmptyLabel.adjustsFontSizeToFitWidth = true
-        
     }
     
     func toggleUI() {
@@ -104,12 +105,11 @@ class MainViewController: UIViewController {
     override func didTappedRightBarButton() {
         let writeViewControllerID = String(describing: WriteViewController.self)
         let writeViewController = storyboard?.instantiateViewController(withIdentifier: writeViewControllerID) as! WriteViewController
-        writeViewController.delegate = self
         navigationController?.pushViewController(writeViewController, animated: false)
     }
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource, ReloadDelegate {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return categories.count
@@ -137,10 +137,5 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Reload
         let detailViewController = storyboard?.instantiateViewController(withIdentifier: detailViewControllerID) as! DetailViewController
         detailViewController.indexPath = indexPath
         navigationController?.pushViewController(detailViewController, animated: false)
-    }
-    
-    func reloadTabelView() {
-        allList = TodoData.getAllList
-        todoListTableView.reloadData()
     }
 }

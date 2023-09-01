@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ReloadDelegate {
-    func reloadTabelView()
-}
-
 class WriteViewController: UIViewController, UISetupProtocol {
     
     @IBOutlet weak var categoryView: UIView!
@@ -30,8 +26,6 @@ class WriteViewController: UIViewController, UISetupProtocol {
     //true = 선택 완료
     //flase = 선택 미완료
     var pickerViewSeletedDoneSwitch: Bool = false
-    
-    var delegate: ReloadDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,8 +110,6 @@ class WriteViewController: UIViewController, UISetupProtocol {
         allList.append(newList)
         
         TodoData.add(allList)
-        
-        delegate?.reloadTabelView()
         
         navigationController?.popViewController(animated: false)
     }
