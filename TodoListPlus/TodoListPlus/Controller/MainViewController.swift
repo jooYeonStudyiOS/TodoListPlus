@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var todoListTableView: UITableView!
     
     var allList: [TodoData] = []
-    var filteredSectionList: [TodoData] = []
     var categories: [Int : String] = [:]
     
     let today = Date()
@@ -122,7 +121,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, Reload
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dateString = selectedDateLabel.text, let date = formatter.date(from: dateString) else { return 0 }
-        filteredSectionList = allList.filter{ Calendar.current.isDate(date, inSameDayAs: $0.date) && $0.category == section }
+        let filteredSectionList = TodoData.getFilteredAllList(for: date, category: section)
         return filteredSectionList.count
     }
     

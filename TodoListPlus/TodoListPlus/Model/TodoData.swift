@@ -30,6 +30,10 @@ struct TodoData: Codable {
         return allList
     }
     
+    static func getFilteredAllList(for date: Date, category: Int) -> [TodoData] {
+        return getAllList.filter{ Calendar.current.isDate(date, inSameDayAs: $0.date) && $0.category == category} .sorted(by: { $0.date < $1.date })
+    }
+    
     static var getCategories: [Int: String] {
         var result: [Int: String] = [:]
         
