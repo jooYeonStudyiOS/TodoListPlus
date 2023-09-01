@@ -7,13 +7,23 @@
 
 import UIKit
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let key: String = "isFirstLaunch"
+        
+        let isFirstLaunch = UserDefaults.standard.bool(forKey: key)
+        
+        if !isFirstLaunch {
+        
+            let categories: [String : Int] = ["미분류" : 1, "가사" : 2, "운동" : 3, "취미" : 4]
+            UserDefaults.standard.set(categories, forKey: TodoData.getCategoryKeyName)
+            UserDefaults.standard.set(true, forKey: key)
+        }
+    
         return true
     }
 
