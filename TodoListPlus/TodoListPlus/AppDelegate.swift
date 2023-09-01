@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !isFirstLaunch {
         
-            let categories: [String : Int] = ["미분류" : 1, "가사" : 2, "운동" : 3, "취미" : 4]
+            let categories: [String : Int] = ["미분류" : 0, "가사" : 1, "운동" : 2, "취미" : 3]
             UserDefaults.standard.set(categories, forKey: TodoData.getCategoryKeyName)
             UserDefaults.standard.set(true, forKey: key)
         }
