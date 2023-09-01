@@ -60,7 +60,23 @@ class WriteViewController: UIViewController, UISetupProtocol {
     }
     
     @IBAction func didTappedCategoryView(_ sender: Any) {
-        categoryKey = showCategoryActionSheet(categoryLabel: categoryLabel)
+        let categories = TodoData.getCategories
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        actionSheet.addAction(cancel)
+        
+        for i in categories.sorted(by: { $0.key < $1.key }) {
+            let action = UIAlertAction(title: i.value, style: .default) {_ in
+                self.categoryLabel.text = i.value
+                self.categoryKey = i.key
+            }
+            
+            actionSheet.addAction(action)
+        }
+
+        present(actionSheet, animated: true)
     }
     
     @IBAction func didTappedDateTimeView(_ sender: Any) {
